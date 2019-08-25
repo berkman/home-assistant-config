@@ -1,0 +1,3 @@
+group.all_vacuum_cleaners: {}
+group.all_switches:
+  friendly_name: Rachio Zones

@@ -1,0 +1,25 @@
+homeassistant:
+  name: Home
+  latitude: 40.1695
+  longitude: -83.1799
+  elevation: 0
+  unit_system: imperial
+  time_zone: America/New_York
+  customize: !include customize.yaml
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+http:
+
+# Ecovacs Deebot
+ecovacs:
+  username: mike.berkman@gmail.com
+  password: !secret ecovacs_password
+  country: us
+  continent: ww
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
