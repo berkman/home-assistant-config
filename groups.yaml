@@ -1,0 +1,25 @@
+irrigation:
+  name: Irrigation
+  icon: mdi:water-pump
+  view: true
+  entities:
+  - group.zones_front
+  - group.zones_back
+  - switch.sideyard_left
+  - switch.sideyard_right
+
+zones_front:
+  name: Front Yard
+  view: false
+  entities:
+  - switch.front_left
+  - switch.front_street
+  - switch.front_house
+
+zones_back:
+  name: Back Yard
+  view: false
+  entities:
+  - switch.backyard_fence
+  - switch.backyard_house
+  - switch.backyard_middle
