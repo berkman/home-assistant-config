@@ -1,25 +1,102 @@
 homeassistant:
   name: Home
-  latitude: 40.1695
-  longitude: -83.1799
-  elevation: 0
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: 298
   unit_system: imperial
+  temperature_unit: F
   time_zone: America/New_York
   customize: !include customize.yaml
 
-# Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
-# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 http:
+
+frontend:
+  themes: !include themes.yaml
+
+discovery:
+  ignore:
 
 # Ecovacs Deebot
 ecovacs:
-  username: mike.berkman@gmail.com
+  username: !secret ecovacs_username
   password: !secret ecovacs_password
   country: us
   continent: ww
 
-group: !include groups.yaml
+# Konnected Security
+konnected:
+  access_token: !secret konnected_access_token
+  devices:
+    - id: 5ccf7f34f972
+      binary_sensors:
+        - zone: 1
+          type: door
+          name: 'Front Door Sensor'
+        - zone: 2
+          type: door
+          name: 'Garage Door Sensor'
+        - zone: 3
+          type: door
+          name: 'Patio Door Sensor'
+        - zone: 4
+          type: motion
+          name: 'Dining Room Motion Sensor'
+        - zone: 5
+          type: motion
+          name: 'Kitchen Motion Sensor'
+        - zone: 6
+          type: motion
+          name: 'Basement Motion Sensor'
+    - id: a4cf12c7981d
+      switches:
+        - zone: out
+          name: siren
+
+# IKEA Tradfri
+tradfri:
+  host: 10.0.0.33
+
+# Liftmaster Garage Door Opener
+cover:
+  - platform: myq
+    username: !secret liftmaster_username
+    password: !secret liftmaster_password
+    type: liftmaster
+
+# Lutron Caseta
+lutron_caseta:
+  host: 10.0.0.60
+  keyfile: lutron/caseta.key
+  certfile: lutron/caseta.crt
+  ca_certs: lutron/caseta-bridge.crt
+
+# Rachio Smart Irrigation
+rachio:
+  api_key: !secret rachio_api_key
+
+sensor:
+  - platform: yr
+    name: Weather
+    forecast: 24
+    monitored_conditions:
+      - temperature
+      - symbol
+      - precipitation
+      - windSpeed
+      - pressure
+      - windDirection
+      - humidity
+      - fog
+      - cloudiness
+      - lowClouds
+      - mediumClouds
+      - highClouds
+      - dewpointTemperature
+  - platform: google_wifi
+    name: Google Wifi
+
 automation: !include automations.yaml
+group: !include groups.yaml
 script: !include scripts.yaml

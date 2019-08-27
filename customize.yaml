@@ -1,3 +1,3 @@
 group.all_vacuum_cleaners: {}
-group.all_switches:
-  friendly_name: Rachio Zones
+switch.front_house:
+  friendly_name: Irrigation Front House Zone
