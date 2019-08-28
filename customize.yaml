@@ -1,5 +1,26 @@
-group.all_vacuum_cleaners: {}
+group.all_vacuum_cleaners:
+  friendly_name: Deebot
+
+switch.front_street:
+  friendly_name: Front Yard Street Zone
+switch.sideyard_right:
+  friendly_name: Side Yard Right Zone
+switch.backyard_middle:
+  friendly_name: Back Yard Middle Zone
+switch.backyard_fence:
+  friendly_name: Back Yard Fence Zone
+switch.front_left:
+  friendly_name: Front Yard Left Zone
+switch.backyard_house:
+  friendly_name: Back Yard House Zone
+switch.sideyard_left:
+  friendly_name:  Side Yard Left Zone
 switch.front_house:
-  friendly_name: Irrigation Front Yard House Zone
-light.left:
-  area: Garage
+  friendly_name: Front Yard House Zone
+
+light.kitchen_main_lights:
+  friendly_name: Kitchen Main Lights
+light.kitchen_table_lights:
+  friendly_name: Kitchen Table Lights
+light.kitchen_island_pendants:
+  friendly_name: Kitchen Island Pendants

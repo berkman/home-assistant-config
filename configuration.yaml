@@ -9,6 +9,13 @@ homeassistant:
   customize: !include customize.yaml
   customize_glob: !include customize_glob.yaml
 
+# Enables configuration UI
+#config:
+
+# Lovelace UI
+lovelace:
+  mode: yaml
+
 zone:
   - name: Home
     latitude: !secret latitude
@@ -89,6 +96,10 @@ lutron_caseta:
 rachio:
   api_key: !secret rachio_api_key
 
+# Roku
+roku:
+  - host: 10.0.0.111
+
 sensor:
   - platform: yr
     name: Weather
@@ -109,6 +120,18 @@ sensor:
       - dewpointTemperature
   - platform: google_wifi
     name: Google Wifi
+  - platform: qnap
+    host: 10.0.0.35
+    username: !secret qnap_username
+    password: !secret qnap_password
+    monitored_conditions:
+      - status
+      - cpu_usage
+      - memory_percent_used
+      - network_tx
+      - volume_percentage_used
+
+
 
 automation: !include automations.yaml
 group: !include groups.yaml

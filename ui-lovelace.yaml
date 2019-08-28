@@ -1,0 +1,52 @@
+title: Home
+views:
+  - icon: mdi:home-assistant
+    id: home
+    title: Home
+    cards:
+      - entities:
+          - light.table_lamp_1
+          - light.table_lamp_2
+        show_header_toggle: true
+        title: Living Room
+        type: entities
+      - entities:
+          - light.mike_lamp
+          - media_player.master_bedroom_display
+        show_header_toggle: false
+        title: Master Bedroom
+        type: entities
+      - entities:
+          - light.kitchen_main_lights
+          - light.kitchen_table_lights
+          - light.kitchen_island_pendants
+          - media_player.kitchen_display
+          - binary_sensor.kitchen_motion_sensor
+          - binary_sensor.patio_door_sensor
+        show_header_toggle: false
+        title: Kitchen
+        type: entities
+      - entities:
+          - cover.leah_s_door
+          - cover.mike_s_door
+          - cover.left
+        show_header_toggle: false
+        title: Garage Doors
+        type: entities
+      - entities:
+          - switch.front_street
+          - switch.sideyard_right
+          - switch.backyard_middle
+          - switch.backyard_fence
+          - switch.front_house
+          - switch.front_left
+          - switch.backyard_house
+          - switch.sideyard_left
+        show_header_toggle: false
+        title: Irrigation
+        type: entities
+      - entities:
+          - vacuum.deebot
+        show_header_toggle: false
+        title: Vacuum
+        type: entities
