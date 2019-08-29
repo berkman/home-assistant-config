@@ -131,6 +131,9 @@ sensor:
       - network_tx
       - volume_percentage_used
 
+tplink:
+#  light:
+#    switch.patio_lights
 
 
 automation: !include automations.yaml

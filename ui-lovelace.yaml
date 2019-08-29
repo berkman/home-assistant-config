@@ -2,7 +2,7 @@ title: Home
 views:
   - icon: mdi:home-assistant
     id: home
-    title: Home
+    #title: Home
     cards:
       - entities:
           - light.table_lamp_1
