@@ -24,3 +24,13 @@ light.kitchen_table_lights:
   friendly_name: Kitchen Table Lights
 light.kitchen_island_pendants:
   friendly_name: Kitchen Island Pendants
+
+
+zone.home:
+  hidden: false
+zone.work:
+  hidden: false
+
+switch.garage_light:
+  friendly_name: Left Garage Spotlight
+  icon: mdi:lightbulb

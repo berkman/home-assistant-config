@@ -23,3 +23,36 @@ zones_back:
   - switch.backyard_fence
   - switch.backyard_house
   - switch.backyard_middle
+
+living_room_lights:
+  name: Living Room Lights
+  icon: mdi:light-switch
+  view: true
+  entities:
+  - light.table_lamp_1
+  - light.table_lamp_2
+
+garage_doors:
+  name: Garage Doors
+  icon: mdi:garage
+  view: true
+  entities:
+  - cover.left_garage_door
+  - cover.middle_garage_door
+  - cover.right_garage_door
+
+garage_lights:
+  name: Garage Lights
+  icon: mdi:light-switch
+  view: true
+  entities:
+  - light.left_garage
+  - light.middle_garage
+  - light.right_garage
+
+bedtime:
+  name: Bedtime
+  view: true
+  entities:
+  - light.hallway_lamp
+  - light.mike_lamp

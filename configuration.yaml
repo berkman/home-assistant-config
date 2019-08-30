@@ -45,11 +45,19 @@ ecovacs:
   country: us
   continent: ww
 
+# IFTTT
+ifttt:
+  key: !secret ifttt_api_key
+
 # Konnected Security
 konnected:
   access_token: !secret konnected_access_token
+  api_host: !secret konnected_api_host
   devices:
-    - id: 5ccf7f34f972
+    - id: !secret konnected_device_id
+      host: !secret konnected_device_host
+      port: !secret konnected_device_port
+      discovery: false
       binary_sensors:
         - zone: 1
           type: door
@@ -62,14 +70,13 @@ konnected:
           name: 'Patio Door Sensor'
         - zone: 4
           type: motion
-          name: 'Dining Room Motion Sensor'
+          name: 'Basement Room Motion Sensor'
         - zone: 5
           type: motion
-          name: 'Kitchen Motion Sensor'
+          name: 'Dining Motion Sensor'
         - zone: 6
           type: motion
-          name: 'Basement Motion Sensor'
-    - id: a4cf12c7981d
+          name: 'Kitchen Motion Sensor'
       switches:
         - zone: out
           name: siren
@@ -131,10 +138,8 @@ sensor:
       - network_tx
       - volume_percentage_used
 
-tplink:
-#  light:
-#    switch.patio_lights
-
+light:
+  - platform: tplink
 
 automation: !include automations.yaml
 group: !include groups.yaml

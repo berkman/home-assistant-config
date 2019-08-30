@@ -1,1 +1,47 @@
-[]
+- id: '1567128610484'
+  alias: Turn on the Lights at Sunset
+  trigger:
+  - event: sunrise
+    offset: -0:30
+    platform: sun
+  condition: []
+  action:
+  - data:
+      entity_id: light.hallway_lamp
+    service: light.turn_on
+  - data:
+      entity_id: light.mike_lamp
+    service: light.turn_on
+  - data:
+      entity_id: group.garage_lights
+    service: light.turn_on
+  - data:
+      event: wiz_on_porch
+    service: ifttt.trigger
+- id: '1567129231530'
+  alias: Turn off the lights at Sunrise
+  trigger:
+  - event: sunrise
+    offset: 0:30
+    platform: sun
+  condition: []
+  action:
+  - data:
+      entity_id: group.garage_lights
+    service: light.turn_off
+  - data:
+      event: wiz_off_porch
+    service: ifttt.trigger
+- id: '1567133001615'
+  alias: Wake Up
+  trigger:
+  - at: '6:30'
+    platform: time
+  condition: []
+  action:
+  - data:
+      event: living_room_fan_off
+    service: ifttt.trigger
+  - data:
+      entity_id: light.mike_lamp
+    service: light.turn_on

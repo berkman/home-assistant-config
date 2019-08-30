@@ -5,9 +5,11 @@ views:
     #title: Home
     cards:
       - entities:
+          - group.living_room_lights
           - light.table_lamp_1
           - light.table_lamp_2
-        show_header_toggle: true
+          - vacuum.deebot
+        show_header_toggle: false
         title: Living Room
         type: entities
       - entities:
@@ -27,11 +29,14 @@ views:
         title: Kitchen
         type: entities
       - entities:
-          - cover.leah_s_door
-          - cover.mike_s_door
-          - cover.left
+          - group.garage_doors
+          - cover.left_garage_door
+          - cover.middle_garage_door
+          - cover.right_garage_door
+          - group.garage_lights
+          - switch.garage_light
         show_header_toggle: false
-        title: Garage Doors
+        title: Garage
         type: entities
       - entities:
           - switch.front_street
@@ -44,9 +49,4 @@ views:
           - switch.sideyard_left
         show_header_toggle: false
         title: Irrigation
-        type: entities
-      - entities:
-          - vacuum.deebot
-        show_header_toggle: false
-        title: Vacuum
         type: entities
