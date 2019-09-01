@@ -1,7 +1,7 @@
 homeassistant:
   name: Home
-  latitude: !secret latitude
-  longitude: !secret longitude
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
   elevation: 298
   unit_system: imperial
   temperature_unit: F
@@ -18,21 +18,21 @@ lovelace:
 
 zone:
   - name: Home
-    latitude: !secret latitude
-    longitude: !secret longitude
+    latitude: !secret home_latitude
+    longitude: !secret home_longitude
     radius: 100
     icon: mdi:home
 
   - name: Work
-    latitude: 39.954605
-    longitude: -83.0084049
+    latitude: !secret work_latitude
+    longitude: !secret work_longitude
     icon: mdi:briefcase
 
 default_config:
 
 http:
   # For extra security set this to only accept connections on localhost if NGINX is on the same machine
-  # server_host: 127.0.0.1
+  server_host: 127.0.0.1
   # Update this line to be your domain
   base_url: https://home.berkman.co
   use_x_forwarded_for: true
@@ -91,7 +91,7 @@ konnected:
 
 # IKEA Tradfri
 tradfri:
-  host: 10.0.0.33
+  host: !secret ikea_host
 
 # Liftmaster Garage Door Opener
 cover:
@@ -102,7 +102,7 @@ cover:
 
 # Lutron Caseta
 lutron_caseta:
-  host: 10.0.0.60
+  host: !secret lutron_caseta_host
   keyfile: lutron/caseta.key
   certfile: lutron/caseta.crt
   ca_certs: lutron/caseta-bridge.crt
@@ -113,7 +113,7 @@ rachio:
 
 # Roku
 roku:
-  - host: 10.0.0.111
+  - host: !secret roku_host
 
 sensor:
   - platform: yr
@@ -136,7 +136,7 @@ sensor:
   - platform: google_wifi
     name: Google Wifi
   - platform: qnap
-    host: 10.0.0.35
+    host: !secret qnap_host
     username: !secret qnap_username
     password: !secret qnap_password
     monitored_conditions:
@@ -146,8 +146,16 @@ sensor:
       - network_tx
       - volume_percentage_used
 
+# TP-Link Kasa
 light:
   - platform: tplink
+
+# Withings
+withings:
+  client_id: !secret withings_client_id
+  client_secret: !secret withings_client_secret
+  profiles:
+    - !secret withings_profile
 
 automation: !include automations.yaml
 group: !include groups.yaml
