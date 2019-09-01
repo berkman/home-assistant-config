@@ -1,7 +1,7 @@
 homeassistant:
   name: Home
-  latitude: !secret latitude
-  longitude: !secret longitude
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
   elevation: 298
   unit_system: imperial
   temperature_unit: F
@@ -18,14 +18,14 @@ lovelace:
 
 zone:
   - name: Home
-    latitude: !secret latitude
-    longitude: !secret longitude
+    latitude: !secret home_latitude
+    longitude: !secret home_longitude
     radius: 100
     icon: mdi:home
 
   - name: Work
-    latitude: 39.954605
-    longitude: -83.0084049
+    latitude: !secret work_latitude
+    longitude: !secret work_longitude
     icon: mdi:briefcase
 
 default_config:
@@ -52,6 +52,10 @@ ecovacs:
   password: !secret ecovacs_password
   country: us
   continent: ww
+
+# Google Assistant
+google_assistant:
+  project_id: !secret google_project_id
 
 # IFTTT
 ifttt:
