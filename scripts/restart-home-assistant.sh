@@ -1,1 +1,2 @@
-docker restart home-assistant
+#docker restart home-assistant
+sudo systemctl restart home-assistant@mberkman
