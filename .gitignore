@@ -6,3 +6,4 @@ secrets.yaml
 *.db
 ._*
 lutron/
+custom_components
