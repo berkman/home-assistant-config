@@ -32,7 +32,7 @@ default_config:
 
 http:
   # For extra security set this to only accept connections on localhost if NGINX is on the same machine
-  # server_host: 127.0.0.1
+  server_host: 127.0.0.1
   # Update this line to be your domain
   base_url: https://home.berkman.co
   use_x_forwarded_for: true
@@ -111,8 +111,8 @@ lutron_caseta_pro:
       mac: !secret lutron_caseta_pro_mac
       default_transition_seconds: 1.0
       # Note: Configure only switches, shades, and fans, all others will be dimmers
-      fan: [ 4, 5 ]
-      switch: [ 2, 3, 6, 7, 8 ]
+      fan: [ 4, 5, 9 ]
+      #switch: [ 2, 3, 6, 7, 8, 10, 11 ]
 
 # Rachio Smart Irrigation
 rachio:

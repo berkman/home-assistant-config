@@ -19,9 +19,9 @@ views:
         title: Master Bedroom
         type: entities
       - entities:
-          - light.kitchen_main_lights
-          - light.kitchen_table_lights
-          - light.kitchen_island_pendants
+#          - light.kitchen_main_lights
+#          - light.kitchen_table_lights
+#          - light.kitchen_island_pendants
           - media_player.kitchen_display
           - binary_sensor.kitchen_motion_sensor
           - binary_sensor.patio_door_sensor

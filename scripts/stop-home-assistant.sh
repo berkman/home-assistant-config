@@ -1,1 +1,1 @@
-sudo systemctl stop home-assistant@mberkman
+#sudo systemctl stop home-assistant@mberkman

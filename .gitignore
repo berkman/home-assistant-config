@@ -6,4 +6,5 @@ secrets.yaml
 *.db
 ._*
 lutron/
+lutron_caseta_pro*
 custom_components

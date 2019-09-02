@@ -18,12 +18,12 @@ switch.sideyard_left:
 switch.front_house:
   friendly_name: Front Yard House Zone
 
-light.kitchen_main_lights:
-  friendly_name: Kitchen Main Lights
-light.kitchen_table_lights:
-  friendly_name: Kitchen Table Lights
-light.kitchen_island_pendants:
-  friendly_name: Kitchen Island Pendants
+#light.kitchen_main_lights:
+#  friendly_name: Kitchen Main Lights
+#light.kitchen_table_lights:
+#  friendly_name: Kitchen Table Lights
+#light.kitchen_island_pendants:
+#  friendly_name: Kitchen Island Pendants
 
 
 zone.home:
