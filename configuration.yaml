@@ -1,7 +1,7 @@
 homeassistant:
   name: Home
-  latitude: !secret latitude
-  longitude: !secret longitude
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
   elevation: 298
   unit_system: imperial
   temperature_unit: F
@@ -18,14 +18,14 @@ lovelace:
 
 zone:
   - name: Home
-    latitude: !secret latitude
-    longitude: !secret longitude
+    latitude: !secret home_latitude
+    longitude: !secret home_longitude
     radius: 100
     icon: mdi:home
 
   - name: Work
-    latitude: 39.954605
-    longitude: -83.0084049
+    latitude: !secret work_latitude
+    longitude: !secret work_longitude
     icon: mdi:briefcase
 
 default_config:
@@ -101,11 +101,14 @@ cover:
     type: liftmaster
 
 # Lutron Caseta
-lutron_caseta:
-  host: 10.0.0.60
-  keyfile: lutron/caseta.key
-  certfile: lutron/caseta.crt
-  ca_certs: lutron/caseta-bridge.crt
+lutron_caseta_pro:
+  bridges:
+    - host: !secret lutron_caseta_pro_host
+      mac: !secret lutron_caseta_pro_mac
+      default_transition_seconds: 1.0
+      # Note: Configure only switches, shades, and fans, all others will be dimmers
+      fan: [ 4, 5 ]
+      switch: [ 2, 3, 6, 7, 8 ]
 
 # Rachio Smart Irrigation
 rachio:

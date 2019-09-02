@@ -1,3 +1,4 @@
+.HA_VERSION
 secrets.yaml
 *.log
 .storage
@@ -5,3 +6,4 @@ secrets.yaml
 *.db
 ._*
 lutron/
+custom_components
