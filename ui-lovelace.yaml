@@ -1,27 +1,34 @@
 title: Home
 views:
-  - icon: mdi:home-assistant
-    id: home
-    #title: Home
+  - title: All For Now
+#  - icon: mdi:home-assistant
+#    id: home
     cards:
       - entities:
           - group.living_room_lights
           - light.table_lamp_1
           - light.table_lamp_2
+          - fan.living_room_ceiling_fan
+          - media_player.living_room_tv
+          - media_player.soundbar
+          - remote.living_room_tv
           - vacuum.deebot
         show_header_toggle: false
         title: Living Room
         type: entities
       - entities:
           - light.mike_lamp
+          - fan.master_bedroom_ceiling_fan
           - media_player.master_bedroom_display
+          - media_player.bedroom_tv
+          - remote.bedroom_tv
         show_header_toggle: false
         title: Master Bedroom
         type: entities
       - entities:
-#          - light.kitchen_main_lights
-#          - light.kitchen_table_lights
-#          - light.kitchen_island_pendants
+          - light.kitchen_main_lights
+          - light.kitchen_table_chandelier
+          - light.kitchen_island_pendants
           - media_player.kitchen_display
           - binary_sensor.kitchen_motion_sensor
           - binary_sensor.patio_door_sensor
@@ -34,7 +41,13 @@ views:
           - cover.middle_garage_door
           - cover.right_garage_door
           - group.garage_lights
+          - light.left_garage
+          - light.middle_garage
+          - light.right_garage
           - switch.garage_light
+          - switch.rachio_in_standby_mode
+          - binary_sensor.garage_door_sensor
+          - media_player.garage_speaker
         show_header_toggle: false
         title: Garage
         type: entities
@@ -49,4 +62,94 @@ views:
           - switch.sideyard_left
         show_header_toggle: false
         title: Irrigation
+        type: entities
+      - entities:
+          - group.basement_lights
+          - light.basement_exercise_area
+          - light.basement_play_area
+          - light.basement_sitting_area
+          - light.basement_stairs
+          - light.couch_lamp
+          - media_player.basement_tv
+          - media_player.basement_speaker
+          - media_player.shield_android_tv
+          - remote.basement_tv
+        show_header_toggle: false
+        title: Basement
+        type: entities
+      - entities:
+          - fan.patio_ceiling_fan
+          - switch.patio_lights
+          - media_player.patio_speaker
+        show_header_toggle: false
+        title: Patio
+        type: entities
+
+
+  - title: Basement
+    cards:
+      - entities:
+          - group.basement_lights
+          - light.basement_exercise_area
+          - light.basement_play_area
+          - light.basement_sitting_area
+          - light.basement_stairs
+          - light.couch_lamp
+          - media_player.basement_tv
+          - media_player.basement_speaker
+          - media_player.shield_android_tv
+          - remote.basement_tv
+        show_header_toggle: false
+        title: Basement
+        type: entities
+      - entity: light.basement_exercise_area
+        type: light
+      - entity: light.basement_play_area
+        type: light
+      - entity: light.basement_sitting_area
+        type: light
+      - entity: light.basement_stairs
+        type: light
+
+  - title: Sensors
+    cards:
+      - entity: sensor.onhub_kbyte_sec_sent
+        type: sensor
+      - entities:
+          - sensor.google_wifi_current_version
+          - sensor.google_wifi_last_restart
+          - sensor.google_wifi_local_ip
+          - sensor.google_wifi_new_version
+          - sensor.google_wifi_status
+          - sensor.google_wifi_uptime
+          - sensor.onhub_bytes_received
+          - sensor.onhub_bytes_sent
+          - sensor.onhub_kbyte_sec_received
+          - sensor.onhub_kbyte_sec_sent
+          - sensor.onhub_packets_received
+          - sensor.onhub_packets_sec_received
+          - sensor.onhub_packets_sec_sent
+          - sensor.onhub_packets_sent
+        show_header_toggle: false
+        title: Google Wifi
+        type: entities
+  - title: Weather
+    cards:
+      - entities:
+          - sensor.google_wifi_current_version
+          - sensor.weather_cloudiness
+          - sensor.weather_dewpoint_temperature
+          - sensor.weather_fog
+          - sensor.weather_high_clouds
+          - sensor.weather_humidity
+          - sensor.weather_low_clouds
+          - sensor.weather_medium_clouds
+          - sensor.weather_precipitation
+          - sensor.weather_pressure
+          - sensor.weather_symbol
+          - sensor.weather_temperature
+          - sensor.weather_wind_direction
+          - sensor.weather_wind_speed
+        show_header_toggle: false
+        title: Weather
         type: entities

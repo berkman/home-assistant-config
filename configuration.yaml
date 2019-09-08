@@ -9,9 +9,6 @@ homeassistant:
   customize: !include customize.yaml
   customize_glob: !include customize_glob.yaml
 
-# Enables configuration UI
-#config:
-
 # Lovelace UI
 lovelace:
   mode: yaml
@@ -29,6 +26,25 @@ zone:
     icon: mdi:briefcase
 
 default_config:
+#automation:
+#cloud:
+#config:
+frontend:
+  themes: !include themes.yaml
+#history:
+#logbook:
+#map:
+#mobile_app:
+#person:
+#script:
+#ssdp:
+#sun:
+#system_health:
+#updater:
+#zeroconf:
+
+discovery:
+  #ignore:
 
 http:
   # For extra security set this to only accept connections on localhost if NGINX is on the same machine
@@ -40,12 +56,6 @@ http:
   # Set this to your NGINX machine IP, or localhost if hosted on the same machine.
   trusted_proxies: 127.0.0.1
 
-frontend:
-  themes: !include themes.yaml
-
-discovery:
-  #ignore:
-
 # Ecovacs Deebot
 ecovacs:
   username: !secret ecovacs_username
@@ -56,6 +66,31 @@ ecovacs:
 # Google Assistant
 google_assistant:
   project_id: !secret google_project_id
+  api_key: !secret google_api_key
+  secure_devices_pin: '123456'
+  expose_by_default: false
+  entity_config:
+    cover.left_garage_door:
+      expose: true
+      room: Garage
+    cover.middle_garage_door:
+      expose: true
+      room: Garage
+    cover.right_garage_door:
+      expose: true
+      room: Garage
+    fan.living_room_ceiling_fan:
+      expose: true
+      room: Living Room
+    fan.master_bedroom_ceiling_fan:
+      expose: true
+      room: Master Bedroom
+    fan.patio_ceiling_fan:
+      expose: true
+      room: Patio
+    vacuum.deebot:
+      expose: true
+      room: Living Room
 
 # IFTTT
 ifttt:
@@ -120,7 +155,12 @@ rachio:
 
 # Roku
 roku:
+  # Living Room TV
   - host: 10.0.0.111
+  # Basement TV
+  - host: 10.0.0.29
+  # Master Bedroom TV
+  - host: 10.0.0.61
 
 sensor:
   - platform: yr
@@ -142,19 +182,29 @@ sensor:
       - dewpointTemperature
   - platform: google_wifi
     name: Google Wifi
-  - platform: qnap
-    host: 10.0.0.35
-    username: !secret qnap_username
-    password: !secret qnap_password
-    monitored_conditions:
-      - status
-      - cpu_usage
-      - memory_percent_used
-      - network_tx
-      - volume_percentage_used
+#  - platform: qnap
+#    host: 10.0.0.35
+#    username: !secret qnap_username
+#    password: !secret qnap_password
+#    monitored_conditions:
+#      - status
+#      - cpu_usage
+#      - memory_percent_used
+#      - network_tx
+#      - volume_percentage_used
+
+upnp:
+  sensors: true
 
 light:
   - platform: tplink
+
+# Vizio Smartcast
+#media_player:
+#  - platform: vizio
+#    host: 10.0.0.25
+#    device_class: soundbar
+#    access_token: AUTH_TOKEN
 
 automation: !include automations.yaml
 group: !include groups.yaml

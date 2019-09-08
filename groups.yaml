@@ -56,3 +56,14 @@ bedtime:
   entities:
   - light.hallway_lamp
   - light.mike_lamp
+
+basement_lights:
+  name: Basement Lights
+  icon: mdi:light-switch
+  view: true
+  entities:
+  - light.basement_exercise_area
+  - light.basement_play_area
+  - light.basement_sitting_area
+  - light.basement_stairs
+  - light.couch_lamp
