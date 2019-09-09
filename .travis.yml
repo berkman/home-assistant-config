@@ -4,11 +4,11 @@ python: "3.6.4"
 
 before_install:
   - touch fake_key.pem
-  - mv config/travis_secrets.yaml config/secrets.yaml
+  - mv travis_secrets.yaml secrets.yaml
 
 install:
   - pip3 install homeassistant
   - pip3 install colorlog
 
 script:
-  - hass -c config/ --script check_config --info all
+  - hass -c ./ --script check_config --info all
