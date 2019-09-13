@@ -9,9 +9,6 @@ homeassistant:
   customize: !include customize.yaml
   customize_glob: !include customize_glob.yaml
 
-# Enables configuration UI
-#config:
-
 # Lovelace UI
 lovelace:
   mode: yaml
@@ -29,6 +26,28 @@ zone:
     icon: mdi:briefcase
 
 default_config:
+#automation:
+#cloud:
+#config:
+frontend:
+  themes: !include themes.yaml
+#history:
+#logbook:
+#map:
+#mobile_app:
+#person:
+#script:
+#ssdp:
+#sun:
+#system_health:
+#updater:
+#zeroconf:
+
+discovery:
+  #ignore:
+
+hacs:
+  token: !secret hacs_token
 
 http:
   # For extra security set this to only accept connections on localhost if NGINX is on the same machine
@@ -40,11 +59,21 @@ http:
   # Set this to your NGINX machine IP, or localhost if hosted on the same machine.
   trusted_proxies: 127.0.0.1
 
-frontend:
-  themes: !include themes.yaml
+##################################################################
 
-discovery:
-  #ignore:
+# Manual Alarm Control Panel
+alarm_control_panel:
+  - platform: manual
+    name: Home Alarm
+    code: 1234
+    pending_time: 30
+    delay_time: 20
+    trigger_time: 4
+    disarmed:
+      trigger_time: 0
+    armed_home:
+      pending_time: 0
+      delay_time: 0
 
 # Ecovacs Deebot
 ecovacs:
@@ -56,6 +85,31 @@ ecovacs:
 # Google Assistant
 google_assistant:
   project_id: !secret google_project_id
+  api_key: !secret google_api_key
+  secure_devices_pin: !secret google_secure_pin
+  expose_by_default: false
+  entity_config:
+    cover.left_garage_door:
+      expose: true
+      room: Garage
+    cover.middle_garage_door:
+      expose: true
+      room: Garage
+    cover.right_garage_door:
+      expose: true
+      room: Garage
+    fan.living_room_ceiling_fan:
+      expose: false
+      room: Living Room
+    fan.master_bedroom_ceiling_fan:
+      expose: false
+      room: Master Bedroom
+    fan.patio_ceiling_fan:
+      expose: false
+      room: Patio
+    vacuum.deebot:
+      expose: true
+      room: Living Room
 
 # IFTTT
 ifttt:
@@ -93,6 +147,16 @@ konnected:
         - zone: out
           name: siren
 
+# Plex, Spotify and Vizio
+media_player:
+  - platform: spotify
+    client_id: !secret spotify_client_id
+    client_secret: !secret spotify_client_secret
+  - platform: plex
+  - platform: vizio
+    host: 10.0.0.25
+    device_class: soundbar
+
 # IKEA Tradfri
 tradfri:
   host: 10.0.0.33
@@ -112,7 +176,13 @@ lutron_caseta_pro:
       default_transition_seconds: 1.0
       # Note: Configure only switches, shades, and fans, all others will be dimmers
       fan: [ 4, 5, 9 ]
-      #switch: [ 2, 3, 6, 7, 8, 10, 11 ]
+
+# MQTT
+mqtt:
+  broker: soldier.cloudmqtt.com
+  port: 24549
+  username: !secret mqtt_username
+  password: !secret mqtt_password
 
 # Rachio Smart Irrigation
 rachio:
@@ -120,9 +190,20 @@ rachio:
 
 # Roku
 roku:
+  # Living Room TV
   - host: 10.0.0.111
+  # Basement TV
+  - host: 10.0.0.29
+  # Master Bedroom TV
+  - host: 10.0.0.61
 
 sensor:
+  - platform: plex
+    host: 10.0.0.93
+    port: 32400
+    username: !secret plex_username
+    password: !secret plex_password
+    verify_ssl: false
   - platform: yr
     name: Weather
     forecast: 24
@@ -142,16 +223,19 @@ sensor:
       - dewpointTemperature
   - platform: google_wifi
     name: Google Wifi
-  - platform: qnap
-    host: 10.0.0.35
-    username: !secret qnap_username
-    password: !secret qnap_password
-    monitored_conditions:
-      - status
-      - cpu_usage
-      - memory_percent_used
-      - network_tx
-      - volume_percentage_used
+#  - platform: qnap
+#    host: 10.0.0.35
+#    username: !secret qnap_username
+#    password: !secret qnap_password
+#    monitored_conditions:
+#      - status
+#      - cpu_usage
+#      - memory_percent_used
+#      - network_tx
+#      - volume_percentage_used
+
+upnp:
+  sensors: true
 
 light:
   - platform: tplink

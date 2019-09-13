@@ -41,18 +41,20 @@ garage_doors:
   - cover.middle_garage_door
   - cover.right_garage_door
 
-garage_lights:
-  name: Garage Lights
+#bedtime:
+#  name: Bedtime
+#  view: true
+#  entities:
+#  - light.hallway_lamp
+#  - light.mike_lamp
+
+basement_lights:
+  name: Basement Lights
   icon: mdi:light-switch
   view: true
   entities:
-  - light.left_garage
-  - light.middle_garage
-  - light.right_garage
-
-bedtime:
-  name: Bedtime
-  view: true
-  entities:
-  - light.hallway_lamp
-  - light.mike_lamp
+  - light.basement_exercise_area
+  - light.basement_play_area
+  - light.basement_sitting_area
+  - light.basement_stairs
+  - light.couch_lamp
