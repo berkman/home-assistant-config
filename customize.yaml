@@ -26,6 +26,7 @@ zone.work:
 switch.garage_light:
   friendly_name: Left Garage Spotlight
   icon: mdi:lightbulb
+
 switch.patio_lights:
   friendly_name: Patio Lights
   icon: mdi:lightbulb

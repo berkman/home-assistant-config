@@ -18,17 +18,29 @@ views:
         type: entities
       - entities:
           - light.mike_lamp
+          - light.leah_lamp
           - fan.master_bedroom_ceiling_fan
           - media_player.master_bedroom_display
-          - media_player.bedroom_tv
+          - media_player.master_bedroom_tv
           - remote.bedroom_tv
         show_header_toggle: false
         title: Master Bedroom
         type: entities
       - entities:
+          - light.garrett_lamp
+        show_header_toggle: false
+        title: Garrett's Bedroom
+        type: entities
+      - entities:
+          - light.meredith_lamp
+        show_header_toggle: false
+        title: Meredith's Bedroom
+        type: entities
+      - entities:
           - light.kitchen_main_lights
           - light.kitchen_table_chandelier
           - light.kitchen_island_pendants
+          - light.kitchen_butler_pantry
           - media_player.kitchen_display
           - binary_sensor.kitchen_motion_sensor
           - binary_sensor.patio_door_sensor
@@ -36,14 +48,28 @@ views:
         title: Kitchen
         type: entities
       - entities:
+          - binary_sensor.front_door_sensor
+        show_header_toggle: false
+        title: Foyer
+        type: entities
+      - entities:
+          - light.mud_room_main_lights
+          - switch.alarm_siren
+          - alarm_control_panel.home_alarm
+        show_header_toggle: false
+        title: Mud Room
+        type: entities
+      - entities:
+          - binary_sensor.dining_room_motion_sensor
+        show_header_toggle: false
+        title: Dining Room
+        type: entities
+      - entities:
           - group.garage_doors
           - cover.left_garage_door
           - cover.middle_garage_door
           - cover.right_garage_door
-          - group.garage_lights
-          - light.left_garage
-          - light.middle_garage
-          - light.right_garage
+          - light.garage_outside_lights
           - switch.garage_light
           - switch.rachio_in_standby_mode
           - binary_sensor.garage_door_sensor
@@ -74,6 +100,7 @@ views:
           - media_player.basement_speaker
           - media_player.shield_android_tv
           - remote.basement_tv
+          - binary_sensor.basement_motion_sensor
         show_header_toggle: false
         title: Basement
         type: entities
@@ -84,7 +111,12 @@ views:
         show_header_toggle: false
         title: Patio
         type: entities
-
+      - entities:
+          - light.front_porch_middle
+          - light.front_porch_outer
+        show_header_toggle: false
+        title: Front Porch
+        type: entities
 
   - title: Basement
     cards:
@@ -111,9 +143,31 @@ views:
       - entity: light.basement_stairs
         type: light
 
+  - title: 1st Floor
+    cards:
+      - entity: light.table_lamp_1
+        type: light
+      - entity: light.table_lamp_2
+        type: light
+      - entity: media_player.living_room_tv
+        type: media-control
+
+  - title: 2nd Floor
+    cards:
+      - entity: light.hallway_lamp
+        type: light
+      - entity: light.mike_lamp
+        type: light
+      - entity: light.leah_lamp
+        type: light
+      - entity: media_player.master_bedroom_tv
+        type: media-control
+
   - title: Sensors
     cards:
       - entity: sensor.onhub_kbyte_sec_sent
+        type: sensor
+      - entity: sensor.google_wifi_uptime
         type: sensor
       - entities:
           - sensor.google_wifi_current_version
@@ -133,6 +187,7 @@ views:
         show_header_toggle: false
         title: Google Wifi
         type: entities
+
   - title: Weather
     cards:
       - entities:
