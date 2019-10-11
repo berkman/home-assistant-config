@@ -26,18 +26,28 @@ zone:
     icon: mdi:briefcase
 
 default_config:
-#automation:
 #cloud:
 #config:
 frontend:
   themes: !include themes.yaml
 #history:
+  #exclude:
+    #domains:
+    #entities:
 #logbook:
+  #exclude:
+    #domains:
+    #entities:
 #map:
 #mobile_app:
 #person:
-#script:
-#ssdp:
+#  - name: Mike
+#    id: mike
+#    user_id: mberkman
+#    device_trackers:
+#      - device_tracker.mberkman_pixel_3
+#  - name: Leah
+#    id: leah
 #sun:
 #system_health:
 #updater:
@@ -61,20 +71,6 @@ http:
 
 ##################################################################
 
-# Manual Alarm Control Panel
-alarm_control_panel:
-  - platform: manual
-    name: Home Alarm
-    code: 1234
-    pending_time: 30
-    delay_time: 20
-    trigger_time: 4
-    disarmed:
-      trigger_time: 0
-    armed_home:
-      pending_time: 0
-      delay_time: 0
-
 # Ecovacs Deebot
 ecovacs:
   username: !secret ecovacs_username
@@ -89,6 +85,8 @@ google_assistant:
   secure_devices_pin: !secret google_secure_pin
   expose_by_default: false
   entity_config:
+    group.upstairs_lights:
+      expose: true
     cover.left_garage_door:
       expose: true
       room: Garage
@@ -115,51 +113,24 @@ google_assistant:
 ifttt:
   key: !secret ifttt_api_key
 
-# Konnected Security
-konnected:
-  access_token: !secret konnected_access_token
-  api_host: !secret konnected_api_host
-  devices:
-    - id: !secret konnected_device_id
-      host: !secret konnected_device_host
-      port: !secret konnected_device_port
-      discovery: false
-      binary_sensors:
-        - zone: 1
-          type: door
-          name: 'Front Door Sensor'
-        - zone: 2
-          type: door
-          name: 'Garage Door Sensor'
-        - zone: 3
-          type: door
-          name: 'Patio Door Sensor'
-        - zone: 4
-          type: motion
-          name: 'Basement Room Motion Sensor'
-        - zone: 5
-          type: motion
-          name: 'Dining Motion Sensor'
-        - zone: 6
-          type: motion
-          name: 'Kitchen Motion Sensor'
-      switches:
-        - zone: out
-          name: siren
-
 # Plex, Spotify and Vizio
 media_player:
   - platform: spotify
     client_id: !secret spotify_client_id
     client_secret: !secret spotify_client_secret
+    #aliases:
+      #asdf: 'Something' 10.0.0.29
+      #spotify_connect {'host': '10.0.0.29', 'port': 42332, 'hostname': 'a5f8003f-84d7-5d68-ae67-fb5550b-0.local.'}
+      #spotify_connect {'host': '10.0.0.111', 'port': 41571, 'hostname': 'ccf5ebd4-eea3-545f-a844-17b0526-0.local.'}
+      #spotify_connect {'host': '10.0.0.61', 'port': 34504, 'hostname': '214a1821-a60f-58c6-acd3-33ce045-0.local.'}
   - platform: plex
-  - platform: vizio
-    host: 10.0.0.25
-    device_class: soundbar
+#  - platform: vizio
+#    host: 10.0.0.25
+#    device_class: soundbar
 
 # IKEA Tradfri
 tradfri:
-  host: 10.0.0.33
+  host: 10.0.0.71
 
 # Liftmaster Garage Door Opener
 cover:
@@ -179,6 +150,7 @@ lutron_caseta_pro:
 
 # MQTT
 mqtt:
+  discovery: true
   broker: soldier.cloudmqtt.com
   port: 24549
   username: !secret mqtt_username
@@ -190,12 +162,9 @@ rachio:
 
 # Roku
 roku:
-  # Living Room TV
-  - host: 10.0.0.111
-  # Basement TV
-  - host: 10.0.0.29
-  # Master Bedroom TV
-  - host: 10.0.0.61
+  - host: 10.0.0.111 #Living Room TV
+  - host: 10.0.0.29 #Basement TV
+  - host: 10.0.0.61 #Master Bedroom TV
 
 sensor:
   - platform: plex
@@ -223,22 +192,45 @@ sensor:
       - dewpointTemperature
   - platform: google_wifi
     name: Google Wifi
-#  - platform: qnap
-#    host: 10.0.0.35
-#    username: !secret qnap_username
-#    password: !secret qnap_password
-#    monitored_conditions:
-#      - status
-#      - cpu_usage
-#      - memory_percent_used
-#      - network_tx
-#      - volume_percentage_used
+  - platform: qnap
+    host: 10.0.0.35
+    username: !secret qnap_username
+    password: !secret qnap_password
+    monitored_conditions:
+      - status
+      - cpu_usage
+      - memory_percent_used
+      - network_tx
+      - volume_percentage_used
+
+tplink:
+  discovery: false
+  switch:
+    - host: 10.0.0.16 #patio lights
+    - host: 10.0.0.66 #garage spotlight
 
 upnp:
   sensors: true
 
-light:
-  - platform: tplink
+#input_number:
+#  stepper_control:
+#    name: Stepper Control
+#    initial: 0
+#    min: -1000
+#    max: 1000
+#    step: 1
+#    mode: slider
+
+switch:
+  - platform: mqtt
+    name: office_blinds
+    command_topic: "home/office/blinds/set"
+    state_topic: "home/office/blinds"
+    availability_topic: "home/office/blinds/status"
+    payload_on: "OPEN"
+    payload_off: "CLOSE"
+    state_on: "OPEN"
+    state_off: "CLOSE"
 
 automation: !include automations.yaml
 group: !include groups.yaml

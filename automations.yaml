@@ -1,5 +1,4 @@
-- id: '1567128610484'
-  alias: Turn on the Lights at Sunset
+- alias: Turn on the Lights at Sunset
   trigger:
   - event: sunset
     offset: -0:30
@@ -15,8 +14,7 @@
   - data:
       entity_id: light.garage_outside_lights
     service: light.turn_on
-- id: '1567129231530'
-  alias: Turn off the lights at Sunrise
+- alias: Turn off the lights at Sunrise
   trigger:
   - event: sunrise
     offset: 0:30
@@ -32,13 +30,28 @@
   - data:
       entity_id: light.garage_outside_lights
     service: light.turn_off
-- id: '1567133001615'
-  alias: Wake Up
+
+
+- alias: Wake Up
   trigger:
-  - at: '6:30'
+  - at: '06:30:00'
     platform: time
   condition: []
   action:
   - data:
       entity_id: light.mike_lamp
     service: light.turn_on
+
+
+- alias: 'Go to Work'
+  trigger:
+  - at: '07:30:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: group.all_lights
+    service: light.turn_off
+  - data:
+      entity_id: group.all_fans
+    service: fan.turn_off

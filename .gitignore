@@ -10,3 +10,5 @@ plex.conf
 secrets.yaml
 .spotify-token-cache
 .storage
+www
+.uuid

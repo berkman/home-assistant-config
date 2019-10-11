@@ -31,24 +31,24 @@ switch.patio_lights:
   friendly_name: Patio Lights
   icon: mdi:lightbulb
 
-binary_sensor.basement_motion_sensor:
-  friendly_name: Basement Motion Sensor
-  device_class: motion
-binary_sensor.dining_room_motion_sensor:
-  friendly_name: Dining Room Motion Sensor
-  device_class: motion
-binary_sensor.front_door_sensor:
-  friendly_name: Front Door Sensor
-  device_class: door
-binary_sensor.garage_door_sensor:
-  friendly_name: Garage Entry Door Sensor
-  device_class: door
-binary_sensor.kitchen_motion_sensor:
-  friendly_name: Kitchen Motion Sensor
-  device_class: motion
-binary_sensor.patio_door_sensor:
-  friendly_name: Patio Door Sensor
-  device_class: door
+#binary_sensor.basement_motion_sensor:
+#  friendly_name: Basement Motion Sensor
+#  device_class: motion
+#binary_sensor.dining_room_motion_sensor:
+#  friendly_name: Dining Room Motion Sensor
+#  device_class: motion
+#binary_sensor.front_door_sensor:
+#  friendly_name: Front Door Sensor
+#  device_class: door
+#binary_sensor.garage_door_sensor:
+#  friendly_name: Garage Entry Door Sensor
+#  device_class: door
+#binary_sensor.kitchen_motion_sensor:
+#  friendly_name: Kitchen Motion Sensor
+#  device_class: motion
+#binary_sensor.patio_door_sensor:
+#  friendly_name: Patio Door Sensor
+#  device_class: door
 
 binary_sensor.rachio_online:
   friendly_name: Rachio
@@ -58,55 +58,59 @@ binary_sensor.rachio_online:
 binary_sensor.updater:
   friendly_name: Updater
 
-sensor.google_wifi_current_version:
-  friendly_name: Google Wifi Current Version
-  icon: mdi:checkbox-marked-circle-outline
-sensor.google_wifi_last_restart:
-  friendly_name: Google Wifi Last Restart
-  icon: mdi:restart
-sensor.google_wifi_local_ip:
-  friendly_name: Google Wifi External IP
-  icon: mdi:access-point-network
-sensor.google_wifi_new_version:
-  friendly_name: Google Wifi New Version
-  icon: mdi:update
-sensor.google_wifi_status:
-  friendly_name: Google Wifi Status
-  icon: mdi:google
-sensor.google_wifi_uptime:
-  friendly_name: Google Wifi Uptime
-  icon: mdi:timelapse
-  unit_of_measurement: days
+#sensor.google_wifi_current_version:
+#  friendly_name: Google Wifi Current Version
+#  icon: mdi:checkbox-marked-circle-outline
+#sensor.google_wifi_last_restart:
+#  friendly_name: Google Wifi Last Restart
+#  icon: mdi:restart
+#sensor.google_wifi_local_ip:
+#  friendly_name: Google Wifi External IP
+#  icon: mdi:access-point-network
+#sensor.google_wifi_new_version:
+#  friendly_name: Google Wifi New Version
+#  icon: mdi:update
+#sensor.google_wifi_status:
+#  friendly_name: Google Wifi Status
+#  icon: mdi:google
+#sensor.google_wifi_uptime:
+#  friendly_name: Google Wifi Uptime
+#  icon: mdi:timelapse
+#  unit_of_measurement: days
 
-sensor.onhub_bytes_received:
-  unit_of_measurement: bytes
-  friendly_name: Google Wifi bytes received
-  icon: mdi:server-network
-sensor.onhub_bytes_sent:
-  unit_of_measurement: bytes
-  friendly_name: Google Wifi bytes sent
-  icon: mdi:server-network
-sensor.onhub_kbyte_sec_received:
-  unit_of_measurement: kbyte/sec
-  friendly_name: Google Wifi kbyte/sec received
-  icon: mdi:server-network
-sensor.onhub_kbyte_sec_sent:
-  unit_of_measurement: kbyte/sec
-  friendly_name: Google Wifi kbyte/sec sent
-  icon: mdi:server-network
-sensor.onhub_packets_received:
-  unit_of_measurement: packets
-  friendly_name: Google Wifi packets received
-  icon: mdi:server-network
-sensor.onhub_packets_sec_received:
-  unit_of_measurement: packets/sec
-  friendly_name: Google Wifi packets/sec received
-  icon: mdi:server-network
-sensor.onhub_packets_sec_sent:
-  unit_of_measurement: packets/sec
-  friendly_name: Google Wifi packets/sec sent
-  icon: mdi:server-network
-sensor.onhub_packets_sent:
-  unit_of_measurement: packets
-  friendly_name: Google Wifi packets sent
-  icon: mdi:server-network
+#sensor.onhub_bytes_received:
+#  unit_of_measurement: bytes
+#  friendly_name: Google Wifi bytes received
+#  icon: mdi:server-network
+#sensor.onhub_bytes_sent:
+#  unit_of_measurement: bytes
+#  friendly_name: Google Wifi bytes sent
+#  icon: mdi:server-network
+#sensor.onhub_kbyte_sec_received:
+#  unit_of_measurement: kbyte/sec
+#  friendly_name: Google Wifi kbyte/sec received
+#  icon: mdi:server-network
+#sensor.onhub_kbyte_sec_sent:
+#  unit_of_measurement: kbyte/sec
+#  friendly_name: Google Wifi kbyte/sec sent
+#  icon: mdi:server-network
+#sensor.onhub_packets_received:
+#  unit_of_measurement: packets
+#  friendly_name: Google Wifi packets received
+#  icon: mdi:server-network
+#sensor.onhub_packets_sec_received:
+#  unit_of_measurement: packets/sec
+#  friendly_name: Google Wifi packets/sec received
+#  icon: mdi:server-network
+#sensor.onhub_packets_sec_sent:
+#  unit_of_measurement: packets/sec
+#  friendly_name: Google Wifi packets/sec sent
+#  icon: mdi:server-network
+#sensor.onhub_packets_sent:
+#  unit_of_measurement: packets
+#  friendly_name: Google Wifi packets sent
+#  icon: mdi:server-network
+
+
+#person.mike:
+#  entity_picture: "/local/mike.jpg"

@@ -58,3 +58,14 @@ basement_lights:
   - light.basement_sitting_area
   - light.basement_stairs
   - light.couch_lamp
+
+upstairs_lights:
+  name: Upstairs Lights
+  icon: mdi:light-switch
+  view: true
+  entities:
+  - light.mike_lamp
+  - light.leah_lamp
+  - light.garrett_lamp
+  - light.meredith_lamp
+  - light.hallway_lamp
